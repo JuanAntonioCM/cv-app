@@ -1,0 +1,22 @@
+.Resume {
+  &, & * {
+    box-sizing: border-box;
+  }
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  &__lateral {
+    background-color: #41455D;
+    width: 34%;
+    padding: 20px;
+  }
+
+  &__content {
+    border: 1px dotted #d2d2d2;
+    background-color: #fff;
+    padding: 20px;
+    width: 66%;
+  }
+}

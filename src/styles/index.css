@@ -1,0 +1,12 @@
+/* purgecss start ignore */
+@tailwind base;
+/* purgecss end ignore */
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Karla', arial, sans-serif;
+}
