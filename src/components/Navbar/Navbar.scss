@@ -1,0 +1,17 @@
+.navbar {
+  &__content {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  &__link {
+    border-right: 1px dotted #74d1cd;
+  }
+
+  li {
+    &:last-child a {
+      border-right: none;
+    }
+  }
+
+}
