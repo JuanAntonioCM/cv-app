@@ -8330,6 +8330,10 @@ html, body {
   font-family: 'Karla', arial, sans-serif;
 }
 
+*:focus {
+  outline: none !important;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

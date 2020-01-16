@@ -1,18 +1,29 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import {
+  Grid,
+  Link,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  IconButton,
+  ListItemSecondaryAction
+} from '@material-ui/core';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import DeleteIcon from '@material-ui/icons/Delete';
 
-function SkillItem() {
+function SkillItem({ skill }) {
   return (
-    <Grid container item direction="column" spacing={0}>
-      <Grid item className="skill-item">
-        <span>HTML5 - Jade</span>
-      </Grid>
-      <Grid container item className="skill-item" direction="column">
-        <span>Basic</span>
-        <span>Intermediate</span>
-        <span>Advanced</span>
-      </Grid>
-    </Grid>
+    <ListItem button spacing={0}>
+      <ListItemIcon>
+        <NavigateNextIcon />
+      </ListItemIcon>
+      <ListItemText primary={skill.name} secondary={skill.level} />
+      <ListItemSecondaryAction>
+        <IconButton edge="end" aria-label="delete">
+          <DeleteIcon />
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
   );
 }
 

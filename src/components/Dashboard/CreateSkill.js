@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Container,
@@ -13,6 +14,7 @@ import {
   Button,
   Typography
 } from '@material-ui/core';
+import { createSkill } from '../../store/actions/skillActions';
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -20,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function CreateSkill() {
+function CreateSkill(props) {
   const classes = useStyles();
 
   // States at top level
@@ -35,6 +37,7 @@ function CreateSkill() {
 
   const handleSubmit = event => {
     event.preventDefault();
+    props.createSkill(state);
   };
 
   const handleChange = event => {
@@ -53,7 +56,7 @@ function CreateSkill() {
             <Grid container spacing={3}>
               <Grid item>
                 <Typography gutterBottom variant="h5" component="h1">
-                  Agrega habilidades
+                  Nueva habilidad
                 </Typography>
               </Grid>
               <Grid item xs={12}>
@@ -97,7 +100,7 @@ function CreateSkill() {
                   size="medium"
                   type="submit"
                 >
-                  Guardar
+                  Agregar
                 </Button>
               </Grid>
             </Grid>
@@ -108,4 +111,9 @@ function CreateSkill() {
   );
 }
 
-export default CreateSkill;
+const mapDispatchToProps = dispatch => {
+  return {
+    createSkill: skill => dispatch(createSkill(skill))
+  };
+};
+export default connect(null, mapDispatchToProps)(CreateSkill);

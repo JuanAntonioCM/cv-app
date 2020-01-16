@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function SignedInLinks() {
   return (
-    <ul className="flex float-right">
+    <ul className="flex items-center justify-end ml-auto">
       <li>
         <NavLink to="/dashboard" className="navbar__link text-white p-2">
           Dashboard

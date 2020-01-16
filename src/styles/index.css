@@ -10,3 +10,6 @@ html, body {
   font-size: 16px;
   font-family: 'Karla', arial, sans-serif;
 }
+*:focus {
+  outline: none !important;
+}

@@ -1,15 +1,19 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, List, Typography } from '@material-ui/core';
 import SkillItem from './SkillItem';
 
-function SkillList() {
+function SkillList({ skills }) {
+  console.log('skills', skills);
   return (
-    <Grid container direction="column" spacing={3}>
-      <SkillItem />
-      <SkillItem />
-      <SkillItem />
-      <SkillItem />
-    </Grid>
+    <div>
+      <Typography variant="subtitle1">Habilidades técnicas</Typography>
+      <List dense>
+        {skills &&
+          skills.map(skill => {
+            return <SkillItem skill={skill} key={skill.id} />;
+          })}
+      </List>
+    </div>
   );
 }
 
