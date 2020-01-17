@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import SingInView from '../components/Auth/SingIn';
+import SignInView from '../components/Auth/SignIn';
 
 class SingIn extends Component {
   render() {
     return (
       <div>
-        <SingInView />
+        <SignInView />
       </div>
     );
   }

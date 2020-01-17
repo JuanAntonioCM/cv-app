@@ -2,21 +2,29 @@
   &, & * {
     box-sizing: border-box;
   }
-  display: flex;
-  flex-direction: row;
   max-width: 1000px;
   margin: 0 auto;
+  @media all and (min-width:640px){
+    display: flex;
+    flex-direction: row;
+  }
 
   &__lateral {
     background-color: #41455D;
-    width: 34%;
     padding: 20px;
+    width: 100%;
+    @media all and (min-width:640px){
+      width: 34%;
+    }
   }
 
   &__content {
     border: 1px dotted #d2d2d2;
     background-color: #fff;
     padding: 20px;
-    width: 66%;
+    width: 100%;
+    @media all and (min-width:640px){
+      width: 66%;
+    }
   }
 }

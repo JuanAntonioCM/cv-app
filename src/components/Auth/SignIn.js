@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import {
   Container,
   Grid,
@@ -6,16 +7,28 @@ import {
   CardContent,
   TextField,
   Button,
-  Typography
+  Typography,
+  Box
 } from '@material-ui/core';
+import { signInAction } from '../../store/actions/authActions';
 
-function SingIn() {
+function SignIn(props) {
+  // console.log('signIn props', props);
+
+  const { authError, signIn } = props;
+
   // States at top level
   const [state, setState] = useState({ user: '', password: '' });
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log('data =>', state);
+
+    if (state.user !== '' && state.password !== '') {
+      signIn({
+        email: state.user,
+        password: state.password
+      });
+    }
   };
 
   const handleChange = event => {
@@ -33,7 +46,10 @@ function SingIn() {
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
               <Grid item>
-                <Typography variant="h5">Identifícate</Typography>
+                <Typography variant="h5">Iniciar sesión</Typography>
+                <Box textAlign="left">
+                  Para crearte una cuenta contáctate a jcahuanam@gmail.com
+                </Box>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -69,6 +85,15 @@ function SingIn() {
                 >
                   Ingresar
                 </Button>
+                {authError ? (
+                  <Typography
+                    variant="subtitle1"
+                    color="error"
+                    className="py-2"
+                  >
+                    {authError}
+                  </Typography>
+                ) : null}
               </Grid>
             </Grid>
           </form>
@@ -78,4 +103,19 @@ function SingIn() {
   );
 }
 
-export default SingIn;
+// export default SingIn;
+const mapStateToProps = state => {
+  return {
+    authError: state.auth.authError
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signIn: credentials => {
+      dispatch(signInAction(credentials));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

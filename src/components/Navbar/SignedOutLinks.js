@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 function SingedOutLinks() {
   return (
     <ul className="flex items-center justify-end ml-auto">
-      <li>
+      {/* <li>
         <NavLink to="/" className="navbar__link text-white p-2">
           Resumen profesional
         </NavLink>
@@ -18,9 +18,9 @@ function SingedOutLinks() {
         <NavLink to="/contact" className="navbar__link text-white p-2">
           Contacto
         </NavLink>
-      </li>
+      </li> */}
       <li>
-        <NavLink to="/singin" className="navbar__link text-white p-2">
+        <NavLink to="/signin" className="navbar__link text-white p-2">
           Iniciar sesión
         </NavLink>
       </li>

@@ -9,8 +9,7 @@ import {
   Card,
   CardContent,
   Typography,
-  Divider,
-  Paper
+  Divider
 } from '@material-ui/core';
 import SkillList from './SkillList';
 
