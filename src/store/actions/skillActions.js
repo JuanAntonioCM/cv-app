@@ -11,14 +11,18 @@ const createSkill = skill => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     // llamada asíncrona a la base de datos
     const firestore = getFirestore();
-    firestore
+    return firestore
       .collection('skills')
       .add(skill)
-      .then(() => {
+      .then(firestoreResponse => {
         dispatch({ type: 'CREATE_SKILL', skill });
+        return { skill, firestoreResponse };
       })
       .catch(error => {
+        console.log('error', error);
+
         dispatch({ type: 'CREATE_SKILL_ERROR', error });
+        return error;
       });
   };
 };

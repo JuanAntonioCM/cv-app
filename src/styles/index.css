@@ -13,3 +13,6 @@ html, body {
 *:focus {
   outline: none !important;
 }
+#root {
+  height: 100%;
+}

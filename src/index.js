@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { createFirestoreInstance } from 'redux-firestore';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { ReactReduxFirebaseProvider, isLoaded } from 'react-redux-firebase';
 import firebase from './config/FirebaseConfig';
+import Splash from './components/Splash';
 
 import './styles/tailwind.css';
 import store from './store/store';
 import App from './App';
+
+function AuthIsLoaded({ children }) {
+  const auth = useSelector(state => state.firebase.auth);
+  if (!isLoaded(auth)) return <Splash />;
+  return children;
+}
 
 // react-redux-firebase config
 const rrfConfig = {
@@ -26,7 +33,9 @@ const rrfProps = {
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-      <App />
+      <AuthIsLoaded>
+        <App />
+      </AuthIsLoaded>
     </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import {
   Container,
   Grid,
@@ -10,25 +9,12 @@ import {
   Typography,
   Box
 } from '@material-ui/core';
-import { signInAction } from '../../store/actions/authActions';
 
-function SignIn(props) {
-  // console.log('signIn props', props);
-
-  const { authError, signIn } = props;
-
-  // States at top level
+function Contact() {
   const [state, setState] = useState({ user: '', password: '' });
 
   const handleSubmit = event => {
     event.preventDefault();
-
-    if (state.user !== '' && state.password !== '') {
-      signIn({
-        email: state.user,
-        password: state.password
-      });
-    }
   };
 
   const handleChange = event => {
@@ -46,12 +32,15 @@ function SignIn(props) {
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
               <Grid item>
-                <Typography variant="h5">Iniciar sesión</Typography>
+                <Typography variant="h5" component="h1">
+                  Contacto
+                </Typography>
                 <Box textAlign="left">
-                  Para crearte una cuenta contáctate a jcahuanam@gmail.com
+                  Para información contactarse al siguiente correo
+                  jcahuanam@gmail.com
                 </Box>
               </Grid>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <TextField
                   value={state.user}
                   id="user"
@@ -85,16 +74,7 @@ function SignIn(props) {
                 >
                   Ingresar
                 </Button>
-                {authError ? (
-                  <Typography
-                    variant="subtitle1"
-                    color="error"
-                    className="py-2"
-                  >
-                    {authError}
-                  </Typography>
-                ) : null}
-              </Grid>
+              </Grid> */}
             </Grid>
           </form>
         </CardContent>
@@ -103,19 +83,4 @@ function SignIn(props) {
   );
 }
 
-// export default SingIn;
-const mapStateToProps = state => {
-  return {
-    authError: state.auth.authError
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return {
-    signIn: credentials => {
-      dispatch(signInAction(credentials));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default Contact;

@@ -8,8 +8,8 @@ import firebase from '../config/FirebaseConfig';
 // Crea los middlewares
 const middlewares = [thunk.withExtraArgument({ getFirebase, getFirestore })];
 
-// Recibe como parámetro una función reductora
-// que realiza los cambios en la aplicación
+// Recibe como parámetro una función reductora que realiza
+// los cambios en la aplicación
 const store = createStore(
   rootReducer,
   compose(applyMiddleware(...middlewares), reduxFirestore(firebase))

@@ -14,19 +14,19 @@ import {
   Button,
   Typography
 } from '@material-ui/core';
-import { createSkill } from '../../store/actions/skillActions';
 
-const useStyles = makeStyles(theme => ({
-  formControl: {
-    minWidth: 190
-  }
+import { createSkill } from '../../../store/actions/skillActions';
+import Notification from '../Notification/Notification';
+
+const useStyles = makeStyles(() => ({
+  formControl: { minWidth: '100%' }
 }));
 
-function CreateSkill(props) {
+function CreateSkill({ createSkill }) {
   const classes = useStyles();
 
-  // States at top level
   const [state, setState] = useState({ name: '', level: '' });
+  const [operationStatus, setOperationStatus] = useState(null);
 
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
@@ -37,7 +37,20 @@ function CreateSkill(props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.createSkill(state);
+    setOperationStatus(null);
+
+    if (state.name !== '' && state.level !== '') {
+      createSkill(state)
+        .then(({ skill }) => {
+          setOperationStatus('success');
+        })
+        .catch(error => {
+          setOperationStatus('error');
+        });
+    } else {
+      console.log('warning');
+      setOperationStatus('warning');
+    }
   };
 
   const handleChange = event => {
@@ -55,21 +68,23 @@ function CreateSkill(props) {
           <form onSubmit={handleSubmit}>
             <Grid container spacing={3}>
               <Grid item>
-                <Typography gutterBottom variant="h5" component="h1">
+                <Typography gutterBottom variant="h6" component="h1">
                   Nueva habilidad
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  value={state.name}
-                  id="name"
-                  name="name"
-                  type="text"
-                  label="Nombre de habilidad"
-                  variant="outlined"
-                  size="medium"
-                  onChange={handleChange}
-                />
+                <FormControl className={classes.formControl}>
+                  <TextField
+                    value={state.name}
+                    id="name"
+                    name="name"
+                    type="text"
+                    label="Nombre de habilidad"
+                    variant="outlined"
+                    size="medium"
+                    onChange={handleChange}
+                  />
+                </FormControl>
               </Grid>
               <Grid item xs={12}>
                 <FormControl variant="outlined" className={classes.formControl}>
@@ -93,7 +108,7 @@ function CreateSkill(props) {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item>
+              <Grid item xs={12}>
                 <Button
                   variant="contained"
                   color="primary"
@@ -103,6 +118,11 @@ function CreateSkill(props) {
                   Agregar
                 </Button>
               </Grid>
+              {operationStatus !== null ? (
+                <Grid item xs={12}>
+                  <Notification status={operationStatus} />
+                </Grid>
+              ) : null}
             </Grid>
           </form>
         </CardContent>

@@ -1,0 +1,84 @@
+$c_center: #2c5282;
+$c_bar: #577dae;
+$c_gray: #dae1ea;
+$c_gray--dark: #b6c6db;
+
+.splash {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 100%;
+  position: relative;
+
+  &__content {
+    margin: 0 auto;
+    width: 10rem;
+    height: 10rem;
+    position: relative;
+    opacity: 0;
+    animation: scale 1s alternate infinite;
+  }
+
+  &__circle {
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    background-color: $c_gray;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--xl {
+      border: 0.5rem solid $c_gray--dark;
+      background-color: $c_gray;
+      border-left-color: $c_bar;
+      position: absolute;
+      animation: turning_cw 1.5s infinite;
+    }
+
+    &--lg {
+      border: 0.5rem solid $c_gray--dark;
+      border-bottom-color: $c_bar;
+      border-top-color: $c_bar;
+      height: 80%;
+      width: 80%;
+      background-color: $c_gray--dark;
+      position: absolute;
+      animation: turning_acw 1s infinite;
+    }
+
+    &--md {
+      border: 0.5rem solid $c_bar;
+      border-bottom-color: $c_gray--dark;
+      height: 80%;
+      width: 80%;
+      background-color: $c_gray;
+      margin: 0 auto;
+      animation: turning_cw 1s infinite;
+    }
+
+    &--sm {
+      height: 80%;
+      width: 80%;
+      background-color: $c_center;
+    }
+  }
+}
+
+// Animaciones
+@keyframes scale {
+  0% {transform: scale(0.5); opacity: 0.1; };
+  100% {transform: scale(0.7); opacity: 0.6;};
+}
+@keyframes turning_cw {
+  0% { transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
+}
+@keyframes turning_acw {
+  0% { transform: rotate(360deg); }
+  100%{ transform: rotate(0deg); }
+}

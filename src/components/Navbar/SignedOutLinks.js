@@ -1,28 +1,20 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import NavbarLink from './NavbarLink/NavbarLink';
 
 function SingedOutLinks() {
   return (
-    <ul className="flex items-center justify-end ml-auto">
+    <ul className="flex flex-col md:ml-auto md:flex-row">
+      <li>
+        <NavbarLink to="/" text="Resumen profesional" />
+      </li>
       {/* <li>
-        <NavLink to="/" className="navbar__link text-white p-2">
-          Resumen profesional
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/portfolio" className="navbar__link text-white p-2">
-          Portafolio
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/contact" className="navbar__link text-white p-2">
-          Contacto
-        </NavLink>
+        <NavbarLink to="/portfolio" text="Portafolio" />
       </li> */}
       <li>
-        <NavLink to="/signin" className="navbar__link text-white p-2">
-          Iniciar sesión
-        </NavLink>
+        <NavbarLink to="/contact" text="Contacto" />
+      </li>
+      <li>
+        <NavbarLink to="/signin" text="Iniciar sesión" />
       </li>
     </ul>
   );

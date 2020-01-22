@@ -25,7 +25,11 @@ const skillsReducer = (state = initState, action) => {
   switch (action.type) {
     case 'CREATE_SKILL':
       console.log('create skill', action.skill);
-      return state;
+      return {
+        ...state,
+        createSkill: true
+      };
+
     case 'CREATE_SKILL_ERROR':
       console.log('create skill error', action.error);
       return state;

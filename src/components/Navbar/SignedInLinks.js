@@ -1,27 +1,25 @@
 import React from 'react';
-// import { Button }
-import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOutAction } from '../../store/actions/authActions';
+import NavbarLink from './NavbarLink/NavbarLink';
 
-function SignedInLinks(props) {
+function SignedInLinks({ signOut }) {
   return (
-    <ul className="flex items-center justify-end ml-auto">
+    <ul className="flex flex-col md:ml-auto md:flex-row">
       <li>
-        <NavLink to="/dashboard" className="navbar__link text-white p-2">
-          Dashboard
-        </NavLink>
+        <NavbarLink to="/" text="Resumen profesional" />
       </li>
       <li>
-        <NavLink to="/create-skill" className="navbar__link text-white p-2">
-          Agregar habilidad
-        </NavLink>
+        <NavbarLink to="/admin" text="Admin" />
+      </li>
+      <li>
+        <NavbarLink to="/admin/create-skill" text="Agregar habilidad" />
       </li>
       <li>
         <button
           type="button"
-          className="navbar__Button text-white p-2"
-          onClick={props.signOut}
+          className="block p-3 text-gray-600 hover:text-red-600 hover:bg-gray-100"
+          onClick={signOut}
         >
           Cerrar sesión
         </button>
