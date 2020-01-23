@@ -2,6 +2,7 @@
   "name": "cv-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jcahuana.github.io/cv-app",
   "dependencies": {
     "@material-ui/core": "^4.8.3",
     "@material-ui/icons": "^4.5.1",
@@ -29,6 +30,7 @@
     "start-js": "react-scripts start",
     "build": "NODE_ENV=production npm-run-all build:css build-js",
     "build-js": "react-scripts build",
+    "postbuild": "cp -r build/* docs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
