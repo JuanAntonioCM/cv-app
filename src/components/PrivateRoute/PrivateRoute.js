@@ -7,6 +7,7 @@ import { isLoaded, isEmpty } from 'react-redux-firebase';
 // screen if you're not yet authenticated or if auth is not
 // yet loaded
 function PrivateRoute({ children, ...rest }) {
+  console.log('->', rest);
   const auth = useSelector(state => state.firebase.auth);
 
   return (
