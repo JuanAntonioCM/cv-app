@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signOutAction } from '../../store/actions/authActions';
-import NavbarLink from './NavbarLink/NavbarLink';
+import { signOutAction } from '../../../store/actions/authActions';
+import NavbarLink from '../NavbarLink/NavbarLink';
 
 function SignedInLinks({ signOut }) {
   return (
