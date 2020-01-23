@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Resume from './components/Resume';
-import Contact from './components/Contact';
+import Resume from './components/Resume/Resume';
+import Contact from './components/Contact/Contact';
 import Navbar from './components/Navbar/Navbar';
-import Admin from './components/Admin';
+import Admin from './components/Admin/Admin';
 // import SkillDetails from './components/Admin/Skills/SkillDetails';
 import SignIn from './components/Auth/SignIn';
 import CreateSkill from './components/Admin/Skills/CreateSkill';
