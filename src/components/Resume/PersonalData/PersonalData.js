@@ -7,7 +7,7 @@ const PersonalData = () => {
       {/* Avatar */}
       <div className="personal_data__avatar">
         <div className="rounded-full w-48 h-48 bg-white mx-auto overflow-hidden border-2 border-gray-400">
-          <img src="perfil.png" alt="Juan Cahuana" />
+          <img src="/perfil.png" alt="Juan Cahuana" />
         </div>
       </div>
       {/* Nombres */}
