@@ -15,8 +15,8 @@ import {
   Typography
 } from '@material-ui/core';
 
-import { createSkill } from '../../../store/actions/skillActions';
-import Notification from '../Notification/Notification';
+import { createSkillAction } from '../../../store/actions/skillActions';
+import Notification from '../../Notification/Notification';
 
 const useStyles = makeStyles(() => ({
   formControl: { minWidth: '100%' }
@@ -133,7 +133,7 @@ function CreateSkill({ createSkill }) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    createSkill: skill => dispatch(createSkill(skill))
+    createSkill: skill => dispatch(createSkillAction(skill))
   };
 };
 export default connect(null, mapDispatchToProps)(CreateSkill);
