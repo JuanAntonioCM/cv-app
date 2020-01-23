@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarLink from './NavbarLink/NavbarLink';
+import NavbarLink from '../NavbarLink/NavbarLink';
 
 function SingedOutLinks() {
   return (
