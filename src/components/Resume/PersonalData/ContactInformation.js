@@ -1,9 +1,14 @@
 import React from 'react';
-import { PhoneIcon, EmailIcon, LinkedinIcon, GithubIcon, WebIcon } from '../../Icons/Icons';
+import {
+  PhoneIcon,
+  EmailIcon,
+  LinkedinIcon,
+  GithubIcon,
+  WebIcon
+} from '../../Icons/Icons';
 
 // Subcomponent
 function ContactLink({ icon, href, text }) {
-  // const iconStyles = 'w-4 h-4 inline fill-current';
   const linkStyles = 'inline-flex items-center py-1 hover:underline';
   return (
     <a href={href} className={linkStyles}>
