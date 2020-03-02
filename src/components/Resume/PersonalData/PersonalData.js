@@ -1,5 +1,6 @@
 import React from 'react';
 import ContactInformation from './ContactInformation';
+import AvatarImage from '../../../assets/images/perfil.png';
 
 const PersonalData = () => {
   return (
@@ -7,7 +8,7 @@ const PersonalData = () => {
       {/* Avatar */}
       <div className="personal_data__avatar">
         <div className="rounded-full w-48 h-48 bg-white mx-auto overflow-hidden border-2 border-gray-400">
-          <img src="./perfil.png" alt="Juan Cahuana" />
+          <img src={AvatarImage} alt="Juan Antonio Cahuana" />
         </div>
       </div>
       {/* Nombres */}
